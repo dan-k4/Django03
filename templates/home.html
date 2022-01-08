@@ -1,0 +1,36 @@
+{#<h1>Name:{{my_name}}</h1>#}
+{# <h2>fruits:{{favorite_fruits.2}}</h2>#}
+{# <h3>age: {{my_info.age}}</h3> #}
+{% load event_tags %}
+
+{{ my_name }}
+
+{# for #}
+<ul>
+  {% for fruit in favourite_fruits %}
+  <li>{{fruit}}</li>
+  {% endfor %}
+</ul>
+
+{# if #}
+{% if 'Grape' in favourite_fruits %}
+  <p>we found a grape</p>
+{% elif 'Lemon' in favourite_fruits %}
+  <p>we found a lemon</p>
+{% else %}
+  <p>not found</p>
+{% endif %}
+
+{% if 'age' in my_info %}
+  <p>age in my_info</p>
+  <p>{{my_info.age}}</p>
+  {% if my_info.age < 20 %}
+    <p>you are not allowed to drink alchol</p>
+  {% endif %}
+{% endif %}
+
+{% if my_info.name != 'Taro' %}
+  <p> Taro </p>
+{% endif %}
+
+<p> {{status | status_to_string:'AAA'}}</p>

@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'download/home.css' %}">
+
+<h1>{{name|upper}}</h1>
+<h1>{{page_url|urlize}}</h1>
+<p>{{bmi|floatformat:2}}</p>
+<p>給料:{{salary|default:'秘密'}}</p>
+<p>{{favourite_fruits|random|upper}}</p>
+<p>{{favourite_fruits|join:', '}}</p>
+<p> {{ msg|linebreaks}} </p>
+<p> {{ msg2|truncatechars:7}} </p>
+
+{% filter upper %}
+<p>aaa</p>
+<h1>bbbb</h1>
+{% endfilter %}
+
+<a href="{% url 'template_app:home' first_name='Taro' last_name='Yamada' %}">home</a>
+
+<img src="{% static "download/sample.jpeg" %}" alt="sample" title="sample" width="100" length="100">
